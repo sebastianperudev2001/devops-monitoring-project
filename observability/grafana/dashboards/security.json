@@ -1,0 +1,129 @@
+{
+  "title": "Security",
+  "uid": "security-dashboard",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": true,
+  "graphTooltip": 1,
+  "style": "dark",
+  "timezone": "browser",
+  "tags": ["microservices", "security"],
+  "time": { "from": "now-1h", "to": "now" },
+  "refresh": "10s",
+  "templating": {
+    "list": [
+      {
+        "name": "service",
+        "label": "Service",
+        "type": "query",
+        "datasource": "Prometheus",
+        "query": "label_values(up, job)",
+        "includeAll": true,
+        "multi": true,
+        "current": { "text": "All", "value": "$__all" },
+        "refresh": 2,
+        "sort": 1
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Failed Auth Attempts",
+      "type": "timeseries",
+      "datasource": "Prometheus",
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 },
+      "fieldConfig": { "defaults": { "unit": "reqps" }, "overrides": [] },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": "Prometheus",
+          "expr": "sum(rate(auth_requests_total{endpoint=~\"/login|/validate\",status=\"401\",job=~\"$service\"}[5m]))",
+          "legendFormat": "failed auth/sec"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Auth Error Breakdown",
+      "type": "barchart",
+      "datasource": "Prometheus",
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 },
+      "fieldConfig": { "defaults": { "unit": "short" }, "overrides": [] },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": "Prometheus",
+          "expr": "sum by (error_type) (increase(auth_errors_total{job=~\"$service\"}[$__range]))",
+          "legendFormat": "{{error_type}}"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Rate Limit Triggers",
+      "type": "timeseries",
+      "datasource": "Prometheus",
+      "gridPos": { "x": 0, "y": 8, "w": 8, "h": 8 },
+      "fieldConfig": { "defaults": { "unit": "reqps" }, "overrides": [] },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": "Prometheus",
+          "expr": "rate(gateway_throttled_total{job=~\"$service\"}[5m])",
+          "legendFormat": "throttled/sec"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "CVEs Detected",
+      "type": "table",
+      "datasource": "Prometheus",
+      "gridPos": { "x": 8, "y": 8, "w": 8, "h": 8 },
+      "fieldConfig": { "defaults": { "unit": "short" }, "overrides": [] },
+      "description": "No data until Phase 5's security pipeline populates security_vulnerabilities_total{severity}.",
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": "Prometheus",
+          "expr": "sum by (severity) (security_vulnerabilities_total)",
+          "format": "table",
+          "instant": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Security Score",
+      "type": "gauge",
+      "datasource": "Prometheus",
+      "gridPos": { "x": 16, "y": 8, "w": 8, "h": 8 },
+      "description": "No data until Phase 5's security pipeline populates security_score.",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "min": 0,
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red", "value": null },
+              { "color": "yellow", "value": 50 },
+              { "color": "green", "value": 80 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] } },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": "Prometheus",
+          "expr": "security_score"
+        }
+      ]
+    }
+  ]
+}
