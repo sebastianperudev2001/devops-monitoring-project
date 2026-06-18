@@ -110,3 +110,58 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  auth-service:
+    build:
+      context: ./microservices
+      dockerfile: Dockerfile.auth-service
+    container_name: auth-service
+    networks: [observability-net]
+    ports:
+      - "5001:5001"
+    environment:
+      JAEGER_OTLP_ENDPOINT: jaeger:4317
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5001/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  data-service:
+    build:
+      context: ./microservices
+      dockerfile: Dockerfile.data-service
+    container_name: data-service
+    networks: [observability-net]
+    ports:
+      - "5002:5002"
+    environment:
+      JAEGER_OTLP_ENDPOINT: jaeger:4317
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5002/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-gateway:
+    build:
+      context: ./microservices
+      dockerfile: Dockerfile.api-gateway
+    container_name: api-gateway
+    networks: [observability-net]
+    ports:
+      - "5000:5000"
+    environment:
+      AUTH_SERVICE_URL: http://auth-service:5001
+      DATA_SERVICE_URL: http://data-service:5002
+      JAEGER_OTLP_ENDPOINT: jaeger:4317
+    depends_on:
+      auth-service:
+        condition: service_healthy
+      data-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
