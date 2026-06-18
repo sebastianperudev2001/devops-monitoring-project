@@ -1,0 +1,56 @@
+groups:
+  - name: microservices_alerts
+    rules:
+      - alert: HighErrorRate
+        expr: service:error_ratio:rate5m > 0.01
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High error rate on {{ $labels.service }}"
+          description: "{{ $labels.service }} 5xx error ratio is {{ $value | humanizePercentage }} over the last 5m (threshold 1%)."
+
+      - alert: HighLatency
+        expr: service:request_latency_p95:5m > 0.5
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High p95 latency on {{ $labels.service }}"
+          description: "{{ $labels.service }} p95 request latency is {{ $value | humanizeDuration }} over the last 5m (threshold 500ms)."
+
+      - alert: ServiceDown
+        expr: label_replace(up{job=~"api-gateway|auth-service|data-service"}, "service", "$1", "job", "(.+)") == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "{{ $labels.service }} is down"
+          description: "{{ $labels.service }} has been unreachable by Prometheus for more than 1 minute."
+
+      - alert: LowThroughput
+        expr: service:request_rate:rate5m < 0.1667
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low throughput on {{ $labels.service }}"
+          description: "{{ $labels.service }} is handling {{ $value | humanize }} req/s (below the 10 req/min threshold) over the last 5m."
+
+      - alert: HighCPUUsage
+        expr: label_replace(rate(process_cpu_seconds_total{job=~"api-gateway|auth-service|data-service"}[5m]), "service", "$1", "job", "(.+)") > 0.8
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage on {{ $labels.service }}"
+          description: "{{ $labels.service }} CPU usage is {{ $value | humanizePercentage }} of one core, averaged over the last 5m (threshold 80%)."
+
+      - alert: HighMemoryUsage
+        expr: label_replace(process_resident_memory_bytes{job=~"api-gateway|auth-service|data-service"}, "service", "$1", "job", "(.+)") > 3e8
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage on {{ $labels.service }}"
+          description: "{{ $labels.service }} resident memory is {{ $value | humanize1024 }}B (threshold 300MB)."
