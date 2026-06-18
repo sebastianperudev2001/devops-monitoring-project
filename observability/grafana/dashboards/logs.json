@@ -1,0 +1,77 @@
+{
+  "title": "Logs",
+  "uid": "logs-dashboard",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": true,
+  "graphTooltip": 1,
+  "style": "dark",
+  "timezone": "browser",
+  "tags": ["microservices", "logs"],
+  "time": { "from": "now-1h", "to": "now" },
+  "refresh": "10s",
+  "templating": {
+    "list": [
+      {
+        "name": "service",
+        "label": "Service",
+        "type": "query",
+        "datasource": "Prometheus",
+        "query": "label_values(up, job)",
+        "includeAll": true,
+        "multi": true,
+        "current": { "text": "All", "value": "$__all" },
+        "refresh": 2,
+        "sort": 1
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Log Volume by Service",
+      "type": "timeseries",
+      "datasource": "Loki",
+      "gridPos": { "x": 0, "y": 0, "w": 24, "h": 8 },
+      "fieldConfig": { "defaults": { "unit": "short" }, "overrides": [] },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": "Loki",
+          "expr": "sum by (container) (count_over_time({container=~\"$service\"}[$__interval]))",
+          "legendFormat": "{{container}}"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Errors & Warnings",
+      "type": "logs",
+      "datasource": "Loki",
+      "gridPos": { "x": 0, "y": 8, "w": 12, "h": 10 },
+      "options": { "showTime": true, "sortOrder": "Descending", "enableLogDetails": true },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": "Loki",
+          "expr": "{container=~\"$service\"} | json | level=~\"ERROR|WARNING\""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Live Tail",
+      "type": "logs",
+      "datasource": "Loki",
+      "gridPos": { "x": 12, "y": 8, "w": 12, "h": 10 },
+      "options": { "showTime": true, "sortOrder": "Descending", "enableLogDetails": true },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": "Loki",
+          "expr": "{container=~\"$service\"}"
+        }
+      ]
+    }
+  ]
+}
