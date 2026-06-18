@@ -126,3 +126,10 @@ No other phase's files are touched (no changes to `docker-compose.yml`, `observa
   build on HIGH/CRITICAL findings is that phase's decision, not predetermined here.
 - **Tool versions are whatever `brew`/`pip3` resolve to at install time**, not pinned — acceptable for a
   one-time local/teaching run; a real CI pipeline would pin scanner versions for reproducible results.
+- **The hardcoded `dev-secret-change-me`/`DEMO_PASSWORD` finding predicted above did not actually surface**
+  in the real run committed to `security/reports/`: trufflehog's only hits were third-party example URLs
+  inside the gitignored `microservices/.venv/`, and semgrep instead flagged a real but different issue
+  (`app.run(host="0.0.0.0")` in all 3 services). The "≥1 vulnerability identified" rubric line is still
+  satisfied — `security/reports/trivy-*.txt` show a CRITICAL `perl-base` CVE and 5 HIGH PyJWT CVEs per
+  image, corroborated by `pip-audit.txt` — just via container/dependency CVEs rather than the secret this
+  spec originally expected to be the headline finding.
