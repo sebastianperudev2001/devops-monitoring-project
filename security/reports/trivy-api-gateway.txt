@@ -1,0 +1,256 @@
+2026-06-17T23:10:18-05:00	INFO	[vulndb] Need to update DB
+2026-06-17T23:10:18-05:00	INFO	[vulndb] Downloading vulnerability DB...
+2026-06-17T23:10:18-05:00	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+703.25 KiB / 96.55 MiB [>____________________________________________________________] 0.71% ? p/s ?3.18 MiB / 96.55 MiB [-->____________________________________________________________] 3.29% ? p/s ?5.65 MiB / 96.55 MiB [--->___________________________________________________________] 5.85% ? p/s ?8.36 MiB / 96.55 MiB [---->_____________________________________________] 8.66% 12.79 MiB p/s ETA 6s11.46 MiB / 96.55 MiB [----->__________________________________________] 11.87% 12.79 MiB p/s ETA 6s14.67 MiB / 96.55 MiB [------->________________________________________] 15.20% 12.79 MiB p/s ETA 6s17.87 MiB / 96.55 MiB [-------->_______________________________________] 18.51% 12.99 MiB p/s ETA 6s21.26 MiB / 96.55 MiB [---------->_____________________________________] 22.02% 12.99 MiB p/s ETA 5s24.25 MiB / 96.55 MiB [------------>___________________________________] 25.12% 12.99 MiB p/s ETA 5s27.37 MiB / 96.55 MiB [------------->__________________________________] 28.35% 13.17 MiB p/s ETA 5s30.15 MiB / 96.55 MiB [-------------->_________________________________] 31.22% 13.17 MiB p/s ETA 5s33.20 MiB / 96.55 MiB [---------------->_______________________________] 34.39% 13.17 MiB p/s ETA 4s36.30 MiB / 96.55 MiB [------------------>_____________________________] 37.59% 13.28 MiB p/s ETA 4s39.32 MiB / 96.55 MiB [------------------->____________________________] 40.73% 13.28 MiB p/s ETA 4s42.13 MiB / 96.55 MiB [-------------------->___________________________] 43.63% 13.28 MiB p/s ETA 4s45.00 MiB / 96.55 MiB [---------------------->_________________________] 46.60% 13.36 MiB p/s ETA 3s48.12 MiB / 96.55 MiB [----------------------->________________________] 49.83% 13.36 MiB p/s ETA 3s51.28 MiB / 96.55 MiB [------------------------->______________________] 53.11% 13.36 MiB p/s ETA 3s54.09 MiB / 96.55 MiB [-------------------------->_____________________] 56.02% 13.48 MiB p/s ETA 3s57.21 MiB / 96.55 MiB [---------------------------->___________________] 59.25% 13.48 MiB p/s ETA 2s60.43 MiB / 96.55 MiB [------------------------------>_________________] 62.59% 13.48 MiB p/s ETA 2s63.49 MiB / 96.55 MiB [------------------------------->________________] 65.76% 13.62 MiB p/s ETA 2s66.92 MiB / 96.55 MiB [--------------------------------->______________] 69.31% 13.62 MiB p/s ETA 2s70.27 MiB / 96.55 MiB [---------------------------------->_____________] 72.78% 13.62 MiB p/s ETA 1s73.61 MiB / 96.55 MiB [------------------------------------>___________] 76.24% 13.83 MiB p/s ETA 1s76.49 MiB / 96.55 MiB [-------------------------------------->_________] 79.22% 13.83 MiB p/s ETA 1s77.96 MiB / 96.55 MiB [-------------------------------------->_________] 80.75% 13.83 MiB p/s ETA 1s81.33 MiB / 96.55 MiB [---------------------------------------->_______] 84.24% 13.77 MiB p/s ETA 1s84.57 MiB / 96.55 MiB [------------------------------------------>_____] 87.59% 13.77 MiB p/s ETA 0s87.96 MiB / 96.55 MiB [------------------------------------------->____] 91.10% 13.77 MiB p/s ETA 0s91.14 MiB / 96.55 MiB [--------------------------------------------->__] 94.39% 13.93 MiB p/s ETA 0s94.49 MiB / 96.55 MiB [---------------------------------------------->_] 97.86% 13.93 MiB p/s ETA 0s96.55 MiB / 96.55 MiB [---------------------------------------------->] 100.00% 13.93 MiB p/s ETA 0s96.55 MiB / 96.55 MiB [---------------------------------------------->] 100.00% 13.62 MiB p/s ETA 0s96.55 MiB / 96.55 MiB [---------------------------------------------->] 100.00% 13.62 MiB p/s ETA 0s96.55 MiB / 96.55 MiB [---------------------------------------------->] 100.00% 13.62 MiB p/s ETA 0s96.55 MiB / 96.55 MiB [---------------------------------------------->] 100.00% 12.74 MiB p/s ETA 0s96.55 MiB / 96.55 MiB [---------------------------------------------->] 100.00% 12.74 MiB p/s ETA 0s96.55 MiB / 96.55 MiB [---------------------------------------------->] 100.00% 12.74 MiB p/s ETA 0s96.55 MiB / 96.55 MiB [-------------------------------------------------] 100.00% 12.38 MiB p/s 8.0s2026-06-17T23:10:30-05:00	INFO	[vulndb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-db:2"
+2026-06-17T23:10:30-05:00	INFO	[vuln] Vulnerability scanning is enabled
+2026-06-17T23:10:30-05:00	INFO	[secret] Secret scanning is enabled
+2026-06-17T23:10:30-05:00	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2026-06-17T23:10:30-05:00	INFO	[secret] Please see https://trivy.dev/docs/v0.71/guide/scanner/secret#recommendation for faster secret detection
+2026-06-17T23:10:30-05:00	INFO	[python] Licenses acquired from one or more METADATA files may be subject to additional terms. Use `--debug` flag to see all affected packages.
+2026-06-17T23:10:31-05:00	INFO	Detected OS	family="debian" version="13.5"
+2026-06-17T23:10:31-05:00	INFO	[debian] Detecting vulnerabilities...	os_version="13" pkg_num=87
+2026-06-17T23:10:31-05:00	INFO	Number of language-specific files	num=1
+2026-06-17T23:10:31-05:00	INFO	[python-pkg] Detecting vulnerabilities...
+2026-06-17T23:10:31-05:00	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.71/guide/scanner/vulnerability#severity-selection for details.
+2026-06-17T23:10:31-05:00	INFO	Table result includes only package filenames. Use '--format json' option to get the full path to the package file.
+
+Report Summary
+
+┌──────────────────────────────────────────────────────────────────────────────────┬────────────┬─────────────────┬─────────┐
+│                                      Target                                      │    Type    │ Vulnerabilities │ Secrets │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ security-pipeline/api-gateway:scan (debian 13.5)                                 │   debian   │       11        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/PyJWT-2.9.0.dist-info/METADATA            │ python-pkg │        2        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/blinker-1.9.0.dist-info/METADATA          │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/certifi-2026.6.17.dist-info/METADATA      │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/charset_normalizer-3.4.7.dist-info/METAD- │ python-pkg │        0        │    -    │
+│ ATA                                                                              │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/click-8.4.1.dist-info/METADATA            │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/flask-3.1.3.dist-info/METADATA            │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/googleapis_common_protos-1.75.0.dist-inf- │ python-pkg │        0        │    -    │
+│ o/METADATA                                                                       │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/grpcio-1.81.1.dist-info/METADATA          │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/idna-3.18.dist-info/METADATA              │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/iniconfig-2.3.0.dist-info/METADATA        │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/itsdangerous-2.2.0.dist-info/METADATA     │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/jinja2-3.1.6.dist-info/METADATA           │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/markupsafe-3.0.3.dist-info/METADATA       │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_api-1.42.1.dist-info/METAD- │ python-pkg │        0        │    -    │
+│ ATA                                                                              │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_exporter_otlp-1.42.1.dist-- │ python-pkg │        0        │    -    │
+│ info/METADATA                                                                    │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_exporter_otlp_proto_common- │ python-pkg │        0        │    -    │
+│ -1.42.1.dist-info/METADATA                                                       │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_exporter_otlp_proto_grpc-1- │ python-pkg │        0        │    -    │
+│ .42.1.dist-info/METADATA                                                         │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_exporter_otlp_proto_http-1- │ python-pkg │        0        │    -    │
+│ .42.1.dist-info/METADATA                                                         │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_instrumentation-0.63b1.dis- │ python-pkg │        0        │    -    │
+│ t-info/METADATA                                                                  │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_instrumentation_flask-0.63- │ python-pkg │        0        │    -    │
+│ b1.dist-info/METADATA                                                            │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_instrumentation_requests-0- │ python-pkg │        0        │    -    │
+│ .63b1.dist-info/METADATA                                                         │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_instrumentation_wsgi-0.63b- │ python-pkg │        0        │    -    │
+│ 1.dist-info/METADATA                                                             │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_proto-1.42.1.dist-info/MET- │ python-pkg │        0        │    -    │
+│ ADATA                                                                            │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_sdk-1.42.1.dist-info/METAD- │ python-pkg │        0        │    -    │
+│ ATA                                                                              │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_semantic_conventions-0.63b- │ python-pkg │        0        │    -    │
+│ 1.dist-info/METADATA                                                             │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/opentelemetry_util_http-0.63b1.dist-info- │ python-pkg │        0        │    -    │
+│ /METADATA                                                                        │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/packaging-26.2.dist-info/METADATA         │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/pip-24.0.dist-info/METADATA               │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/pluggy-1.6.0.dist-info/METADATA           │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/prometheus_client-0.25.0.dist-info/METAD- │ python-pkg │        0        │    -    │
+│ ATA                                                                              │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/protobuf-6.33.6.dist-info/METADATA        │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/pygments-2.20.0.dist-info/METADATA        │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/pytest-9.1.0.dist-info/METADATA           │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/pyyaml-6.0.3.dist-info/METADATA           │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/requests-2.34.2.dist-info/METADATA        │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/responses-0.26.1.dist-info/METADATA       │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools-79.0.1.dist-info/METADATA      │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/autocommand-2.2.2.dis- │ python-pkg │        0        │    -    │
+│ t-info/METADATA                                                                  │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/backports.tarfile-1.2- │ python-pkg │        0        │    -    │
+│ .0.dist-info/METADATA                                                            │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/importlib_metadata-8.- │ python-pkg │        0        │    -    │
+│ 0.0.dist-info/METADATA                                                           │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/inflect-7.3.1.dist-in- │ python-pkg │        0        │    -    │
+│ fo/METADATA                                                                      │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/jaraco.collections-5.- │ python-pkg │        0        │    -    │
+│ 1.0.dist-info/METADATA                                                           │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/jaraco.context-5.3.0.- │ python-pkg │        1        │    -    │
+│ dist-info/METADATA                                                               │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/jaraco.functools-4.0.- │ python-pkg │        0        │    -    │
+│ 1.dist-info/METADATA                                                             │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/jaraco.text-3.12.1.di- │ python-pkg │        0        │    -    │
+│ st-info/METADATA                                                                 │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/more_itertools-10.3.0- │ python-pkg │        0        │    -    │
+│ .dist-info/METADATA                                                              │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/packaging-24.2.dist-i- │ python-pkg │        0        │    -    │
+│ nfo/METADATA                                                                     │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/platformdirs-4.2.2.di- │ python-pkg │        0        │    -    │
+│ st-info/METADATA                                                                 │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/tomli-2.0.1.dist-info- │ python-pkg │        0        │    -    │
+│ /METADATA                                                                        │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/typeguard-4.3.0.dist-- │ python-pkg │        0        │    -    │
+│ info/METADATA                                                                    │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/typing_extensions-4.1- │ python-pkg │        0        │    -    │
+│ 2.2.dist-info/METADATA                                                           │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/wheel-0.45.1.dist-inf- │ python-pkg │        1        │    -    │
+│ o/METADATA                                                                       │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/setuptools/_vendor/zipp-3.19.2.dist-info- │ python-pkg │        0        │    -    │
+│ /METADATA                                                                        │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/typing_extensions-4.15.0.dist-info/METAD- │ python-pkg │        0        │    -    │
+│ ATA                                                                              │            │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/urllib3-2.7.0.dist-info/METADATA          │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/werkzeug-3.1.8.dist-info/METADATA         │ python-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/wheel-0.45.1.dist-info/METADATA           │ python-pkg │        1        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┼─────────┤
+│ usr/local/lib/python3.11/site-packages/wrapt-2.2.1.dist-info/METADATA            │ python-pkg │        0        │    -    │
+└──────────────────────────────────────────────────────────────────────────────────┴────────────┴─────────────────┴─────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+security-pipeline/api-gateway:scan (debian 13.5)
+================================================
+Total: 11 (HIGH: 9, CRITICAL: 2)
+
+┌──────────────┬────────────────┬──────────┬──────────────┬───────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
+│   Library    │ Vulnerability  │ Severity │    Status    │ Installed Version │ Fixed Version │                            Title                             │
+├──────────────┼────────────────┼──────────┼──────────────┼───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ libncursesw6 │ CVE-2025-69720 │ HIGH     │ affected     │ 6.5+20250216-2    │               │ ncurses: ncurses: Buffer overflow vulnerability may lead to  │
+│              │                │          │              │                   │               │ arbitrary code execution.                                    │
+│              │                │          │              │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69720                   │
+├──────────────┼────────────────┤          │              ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ libsqlite3-0 │ CVE-2026-11822 │          │              │ 3.46.1-7+deb13u1  │               │ SQLite before 3.53.2 contains memory corruption              │
+│              │                │          │              │                   │               │ vulnerabilities in the ...                                   │
+│              │                │          │              │                   │               │ https://avd.aquasec.com/nvd/cve-2026-11822                   │
+│              ├────────────────┤          │              │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-11824 │          │              │                   │               │ SQLite before 3.53.2 contains a heap-based buffer overflow   │
+│              │                │          │              │                   │               │ vulnerabili ...                                              │
+│              │                │          │              │                   │               │ https://avd.aquasec.com/nvd/cve-2026-11824                   │
+├──────────────┼────────────────┤          │              ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ libtinfo6    │ CVE-2025-69720 │          │              │ 6.5+20250216-2    │               │ ncurses: ncurses: Buffer overflow vulnerability may lead to  │
+│              │                │          │              │                   │               │ arbitrary code execution.                                    │
+│              │                │          │              │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69720                   │
+├──────────────┤                │          │              │                   ├───────────────┤                                                              │
+│ ncurses-base │                │          │              │                   │               │                                                              │
+│              │                │          │              │                   │               │                                                              │
+│              │                │          │              │                   │               │                                                              │
+├──────────────┤                │          │              │                   ├───────────────┤                                                              │
+│ ncurses-bin  │                │          │              │                   │               │                                                              │
+│              │                │          │              │                   │               │                                                              │
+│              │                │          │              │                   │               │                                                              │
+├──────────────┼────────────────┼──────────┼──────────────┼───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ perl-base    │ CVE-2026-42496 │ CRITICAL │ fix_deferred │ 5.40.1-6          │               │ perl-archive-tar: perl-archive-tar: Path traversal via       │
+│              │                │          │              │                   │               │ crafted symlinks allows arbitrary file access                │
+│              │                │          │              │                   │               │ https://avd.aquasec.com/nvd/cve-2026-42496                   │
+│              ├────────────────┤          ├──────────────┤                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-8376  │          │ affected     │                   │               │ Perl versions through 5.43.10 have a heap buffer overflow    │
+│              │                │          │              │                   │               │ when compili ......                                          │
+│              │                │          │              │                   │               │ https://avd.aquasec.com/nvd/cve-2026-8376                    │
+│              ├────────────────┼──────────┼──────────────┤                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-42497 │ HIGH     │ fix_deferred │                   │               │ Archive::Tar versions before 3.08 for Perl extract hardlinks │
+│              │                │          │              │                   │               │ to attack ...                                                │
+│              │                │          │              │                   │               │ https://avd.aquasec.com/nvd/cve-2026-42497                   │
+│              ├────────────────┤          ├──────────────┤                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-48962 │          │ affected     │                   │               │ perl-IO-Compress: perl-IO-Compress: Arbitrary code execution │
+│              │                │          │              │                   │               │ via attacker-controlled output glob                          │
+│              │                │          │              │                   │               │ https://avd.aquasec.com/nvd/cve-2026-48962                   │
+│              ├────────────────┤          ├──────────────┤                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-9538  │          │ fix_deferred │                   │               │ Archive::Tar versions before 3.10 for Perl allow memory      │
+│              │                │          │              │                   │               │ exhaustion via ...                                           │
+│              │                │          │              │                   │               │ https://avd.aquasec.com/nvd/cve-2026-9538                    │
+└──────────────┴────────────────┴──────────┴──────────────┴───────────────────┴───────────────┴──────────────────────────────────────────────────────────────┘
+
+Python (python-pkg)
+===================
+Total: 5 (HIGH: 5, CRITICAL: 0)
+
+┌───────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
+│          Library          │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version │                            Title                             │
+├───────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ PyJWT (METADATA)          │ CVE-2026-32597 │ HIGH     │ fixed  │ 2.9.0             │ 2.12.0        │ pyjwt: PyJWT accepts unknown `crit` header extensions (RFC   │
+│                           │                │          │        │                   │               │ 7515 §4.1.11 MUST violation)...                              │
+│                           │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-32597                   │
+│                           ├────────────────┤          │        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│                           │ CVE-2026-48526 │          │        │                   │ 2.13.0        │ python-pyjwt: PyJWT: Authentication bypass due to forged     │
+│                           │                │          │        │                   │               │ JSON Web Tokens                                              │
+│                           │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-48526                   │
+├───────────────────────────┼────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ jaraco.context (METADATA) │ CVE-2026-23949 │          │        │ 5.3.0             │ 6.1.0         │ jaraco.context: jaraco.context: Path traversal via malicious │
+│                           │                │          │        │                   │               │ tar archives                                                 │
+│                           │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-23949                   │
+├───────────────────────────┼────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ wheel (METADATA)          │ CVE-2026-24049 │          │        │ 0.45.1            │ 0.46.2        │ wheel: wheel: Privilege Escalation or Arbitrary Code         │
+│                           │                │          │        │                   │               │ Execution via malicious wheel file...                        │
+│                           │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-24049                   │
+│                           │                │          │        │                   │               │                                                              │
+│                           │                │          │        │                   │               │                                                              │
+│                           │                │          │        │                   │               │                                                              │
+│                           │                │          │        │                   │               │                                                              │
+└───────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────┴──────────────────────────────────────────────────────────────┘
