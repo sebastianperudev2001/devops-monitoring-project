@@ -158,8 +158,10 @@ receivers:
         channel: '#alerts'
         send_resolved: true
         title: '{{ .CommonLabels.alertname }}'
-        text: '{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}'
+        text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
 ```
+
+`text` is double-quoted, not single-quoted: YAML's single-quoted style never processes backslash escapes, so a single-quoted `\n` would render as the literal characters `\`+`n` in the Slack message rather than a line break between grouped alerts (caught in code review during implementation).
 
 One receiver for all alerts (no severity-based routing tree) — proportionate for 6 alerts in a teaching
 project; a real deployment would likely split `critical`→pager, `warning`→Slack.

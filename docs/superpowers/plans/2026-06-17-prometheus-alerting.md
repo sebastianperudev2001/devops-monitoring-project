@@ -209,8 +209,10 @@ receivers:
         channel: '#alerts'
         send_resolved: true
         title: '{{ .CommonLabels.alertname }}'
-        text: '{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}'
+        text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
 ```
+
+`text` uses a double-quoted scalar, not single-quoted: YAML's single-quoted style has no backslash-escape processing, so a single-quoted `\n` would land in the Slack message as the two literal characters `\`+`n` instead of a line break between grouped alerts. Double-quoting lets YAML's own escape processing turn `\n` into an actual newline before Alertmanager's Go template ever sees it.
 
 - [ ] **Step 3: Validate with amtool, mounting the secrets file at the same path the container will use**
 
