@@ -12,4 +12,4 @@ receivers:
         channel: '#alerts'
         send_resolved: true
         title: '{{ .CommonLabels.alertname }}'
-        text: '{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}'
+        text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
