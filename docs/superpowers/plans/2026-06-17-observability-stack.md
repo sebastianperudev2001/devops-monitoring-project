@@ -409,6 +409,7 @@ services:
   jaeger:
     image: jaegertracing/all-in-one:1.60
     container_name: jaeger
+    user: root
     networks: [observability-net]
     ports:
       - "16686:16686"
@@ -448,6 +449,8 @@ services:
       timeout: 5s
       retries: 5
 ```
+
+The Jaeger service's `user: root` override exists because `jaegertracing/all-in-one:1.60` runs as non-root UID 10001 by default, but Docker creates the named `jaeger_data` volume owned by `root:root` — without the override, Jaeger fails at startup with `mkdir /badger/key: permission denied` since UID 10001 can't write into that volume. Running this one container as root sidesteps the ownership mismatch; nothing else in the stack needs this treatment.
 
 - [ ] **Step 2: Validate Compose syntax**
 
