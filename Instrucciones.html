@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ejercicios-dia3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="-proyecto-final-sistema-de-monitoreo-completo">🚀 Proyecto Final: Sistema de Monitoreo Completo</h1>
+<h2 id="día-3---ejercicio-integrador">Día 3 - Ejercicio Integrador</h2>
+<p><strong>Duración:</strong> 1 hora<br>
+<strong>Modalidad:</strong> Proyecto final individual</p>
+<hr>
+<h2 id="-objetivo">🎯 Objetivo</h2>
+<p>Implementar un sistema de monitoreo completo para una aplicación microservicios con:</p>
+<ul>
+<li>Métricas (Prometheus + Grafana)</li>
+<li>Logs (Loki)</li>
+<li>Traces (Jaeger)</li>
+<li>Alertas</li>
+<li>Security scanning</li>
+</ul>
+<hr>
+<h2 id="-especificaciones-del-proyecto">📋 Especificaciones del Proyecto</h2>
+<h3 id="arquitectura-de-la-aplicación">Arquitectura de la Aplicación</h3>
+<p>Crea 3 microservicios simples:</p>
+<ol>
+<li>
+<p><strong>API Gateway</strong> (Puerto 5000)</p>
+<ul>
+<li>Recibe requests de usuarios</li>
+<li>Llama a Auth Service</li>
+<li>Llama a Data Service</li>
+<li>Retorna respuesta agregada</li>
+</ul>
+</li>
+<li>
+<p><strong>Auth Service</strong> (Puerto 5001)</p>
+<ul>
+<li>Valida tokens (simulado)</li>
+<li>Retorna user info</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Service</strong> (Puerto 5002)</p>
+<ul>
+<li>Consulta &quot;base de datos&quot; (simulada)</li>
+<li>Retorna datos</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="-requerimientos-del-proyecto">📝 Requerimientos del Proyecto</h2>
+<h3 id="1-instrumentación-completa">1. Instrumentación Completa</h3>
+<p><strong>Métricas (todas las apps):</strong></p>
+<ul>
+<li>Total requests</li>
+<li>Request duration (histogram)</li>
+<li>Errors por tipo</li>
+<li>Active connections</li>
+</ul>
+<p><strong>Logs:</strong></p>
+<ul>
+<li>Structured logging (JSON)</li>
+<li>Log level apropiado</li>
+<li>Request ID en cada log</li>
+</ul>
+<p><strong>Traces:</strong></p>
+<ul>
+<li>Trace ID propagado entre servicios</li>
+<li>Spans para cada operación importante</li>
+</ul>
+<hr>
+<h3 id="2-monitoreo">2. Monitoreo</h3>
+<p><strong>Prometheus:</strong></p>
+<ul>
+<li>Scrapear los 3 servicios</li>
+<li>Al menos 3 recording rules</li>
+<li>Al menos 5 alertas</li>
+</ul>
+<p><strong>Grafana:</strong></p>
+<ul>
+<li>Dashboard &quot;Service Overview&quot; con:
+<ul>
+<li>Golden Signals (Latency, Traffic, Errors, Saturation)</li>
+<li>Red/Green status visual</li>
+<li>Variables para filtrar por service</li>
+</ul>
+</li>
+<li>Dashboard &quot;Business Metrics&quot;</li>
+<li>Dashboard &quot;Security&quot;</li>
+</ul>
+<p><strong>Loki:</strong></p>
+<ul>
+<li>Logs centralizados de los 3 servicios</li>
+<li>Dashboard con panels de logs</li>
+</ul>
+<p><strong>Jaeger:</strong></p>
+<ul>
+<li>Traces end-to-end visible</li>
+<li>Al menos 3 niveles de spans</li>
+</ul>
+<hr>
+<h3 id="3-alertas">3. Alertas</h3>
+<p>Configurar alertas para:</p>
+<ul>
+<li>High error rate (&gt; 1%)</li>
+<li>High latency (p95 &gt; 500ms)</li>
+<li>Service down</li>
+<li>Low throughput (&lt; 10 req/min)</li>
+<li>High CPU/Memory</li>
+</ul>
+<p><strong>Notification:</strong> Email o Slack</p>
+<hr>
+<h3 id="4-seguridad">4. Seguridad</h3>
+<p><strong>Pipeline CI/CD simulado:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment"># security-pipeline.sh</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;=== Security Pipeline ===&quot;</span>
+
+<span class="hljs-comment"># 1. Secret detection</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;[1/4] Scanning for secrets...&quot;</span>
+trufflehog filesystem . --json
+
+<span class="hljs-comment"># 2. SAST</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;[2/4] Running SAST...&quot;</span>
+semgrep --config=auto
+
+<span class="hljs-comment"># 3. Dependency scanning</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;[3/4] Scanning dependencies...&quot;</span>
+pip-audit
+
+<span class="hljs-comment"># 4. Container scanning</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;[4/4] Scanning Docker images...&quot;</span>
+trivy image myapp:latest --severity HIGH,CRITICAL
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;=== Security scan complete ===&quot;</span>
+</div></code></pre>
+<p><strong>Dashboard de Seguridad en Grafana:</strong></p>
+<ul>
+<li>CVEs detectados</li>
+<li>Security score</li>
+<li>Failed auth attempts</li>
+</ul>
+<hr>
+<h2 id="️-implementación-guiada">🛠️ Implementación Guiada</h2>
+<h3 id="paso-1-crear-los-microservicios">Paso 1: Crear los Microservicios</h3>
+<h4 id="api-gateway-api-gatewaypy">API Gateway (api-gateway.py)</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, jsonify
+<span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> prometheus_client <span class="hljs-keyword">import</span> Counter, Histogram, generate_latest
+<span class="hljs-keyword">from</span> opentelemetry <span class="hljs-keyword">import</span> trace
+<span class="hljs-keyword">import</span> logging
+
+app = Flask(__name__)
+tracer = trace.get_tracer(__name__)
+
+<span class="hljs-comment"># Metrics</span>
+requests_total = Counter(<span class="hljs-string">&#x27;gateway_requests_total&#x27;</span>, <span class="hljs-string">&#x27;Total requests&#x27;</span>, [<span class="hljs-string">&#x27;endpoint&#x27;</span>, <span class="hljs-string">&#x27;status&#x27;</span>])
+request_duration = Histogram(<span class="hljs-string">&#x27;gateway_request_duration_seconds&#x27;</span>, <span class="hljs-string">&#x27;Request duration&#x27;</span>)
+
+<span class="hljs-comment"># Logging</span>
+logging.basicConfig(level=logging.INFO, <span class="hljs-built_in">format</span>=<span class="hljs-string">&#x27;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#x27;</span>)
+logger = logging.getLogger(__name__)
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/api/data&#x27;</span></span>)</span>
+<span class="hljs-meta">@request_duration.time()</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">get_data</span>():
+    <span class="hljs-keyword">with</span> tracer.start_as_current_span(<span class="hljs-string">&quot;api-gateway-get-data&quot;</span>):
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-comment"># Call auth service</span>
+            <span class="hljs-keyword">with</span> tracer.start_as_current_span(<span class="hljs-string">&quot;call-auth-service&quot;</span>):
+                auth_resp = requests.get(<span class="hljs-string">&#x27;http://localhost:5001/validate&#x27;</span>, timeout=<span class="hljs-number">1</span>)
+            
+            <span class="hljs-keyword">if</span> auth_resp.status_code != <span class="hljs-number">200</span>:
+                requests_total.labels(endpoint=<span class="hljs-string">&#x27;/api/data&#x27;</span>, status=<span class="hljs-string">&#x27;401&#x27;</span>).inc()
+                <span class="hljs-keyword">return</span> jsonify({<span class="hljs-string">&#x27;error&#x27;</span>: <span class="hljs-string">&#x27;Unauthorized&#x27;</span>}), <span class="hljs-number">401</span>
+            
+            <span class="hljs-comment"># Call data service</span>
+            <span class="hljs-keyword">with</span> tracer.start_as_current_span(<span class="hljs-string">&quot;call-data-service&quot;</span>):
+                data_resp = requests.get(<span class="hljs-string">&#x27;http://localhost:5002/data&#x27;</span>, timeout=<span class="hljs-number">1</span>)
+            
+            requests_total.labels(endpoint=<span class="hljs-string">&#x27;/api/data&#x27;</span>, status=<span class="hljs-string">&#x27;200&#x27;</span>).inc()
+            logger.info(<span class="hljs-string">f&quot;Successfully served /api/data&quot;</span>)
+            <span class="hljs-keyword">return</span> data_resp.json()
+        
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            requests_total.labels(endpoint=<span class="hljs-string">&#x27;/api/data&#x27;</span>, status=<span class="hljs-string">&#x27;500&#x27;</span>).inc()
+            logger.error(<span class="hljs-string">f&quot;Error in /api/data: <span class="hljs-subst">{<span class="hljs-built_in">str</span>(e)}</span>&quot;</span>)
+            <span class="hljs-keyword">return</span> jsonify({<span class="hljs-string">&#x27;error&#x27;</span>: <span class="hljs-built_in">str</span>(e)}), <span class="hljs-number">500</span>
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/metrics&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">metrics</span>():
+    <span class="hljs-keyword">return</span> generate_latest()
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
+    app.run(port=<span class="hljs-number">5000</span>)
+</div></code></pre>
+<h4 id="auth-service-auth-servicepy">Auth Service (auth-service.py)</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, jsonify
+<span class="hljs-keyword">from</span> prometheus_client <span class="hljs-keyword">import</span> Counter, generate_latest
+<span class="hljs-keyword">from</span> opentelemetry <span class="hljs-keyword">import</span> trace
+<span class="hljs-keyword">import</span> logging
+<span class="hljs-keyword">import</span> random
+
+app = Flask(__name__)
+tracer = trace.get_tracer(__name__)
+
+requests_total = Counter(<span class="hljs-string">&#x27;auth_requests_total&#x27;</span>, <span class="hljs-string">&#x27;Total auth requests&#x27;</span>, [<span class="hljs-string">&#x27;status&#x27;</span>])
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/validate&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">validate</span>():
+    <span class="hljs-keyword">with</span> tracer.start_as_current_span(<span class="hljs-string">&quot;auth-validate&quot;</span>):
+        <span class="hljs-comment"># Simular validación (90% success)</span>
+        <span class="hljs-keyword">if</span> random.random() &lt; <span class="hljs-number">0.9</span>:
+            requests_total.labels(status=<span class="hljs-string">&#x27;200&#x27;</span>).inc()
+            logger.info(<span class="hljs-string">&quot;Auth validation successful&quot;</span>)
+            <span class="hljs-keyword">return</span> jsonify({<span class="hljs-string">&#x27;valid&#x27;</span>: <span class="hljs-literal">True</span>, <span class="hljs-string">&#x27;user_id&#x27;</span>: <span class="hljs-number">123</span>})
+        <span class="hljs-keyword">else</span>:
+            requests_total.labels(status=<span class="hljs-string">&#x27;401&#x27;</span>).inc()
+            logger.warning(<span class="hljs-string">&quot;Auth validation failed&quot;</span>)
+            <span class="hljs-keyword">return</span> jsonify({<span class="hljs-string">&#x27;valid&#x27;</span>: <span class="hljs-literal">False</span>}), <span class="hljs-number">401</span>
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/metrics&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">metrics</span>():
+    <span class="hljs-keyword">return</span> generate_latest()
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
+    app.run(port=<span class="hljs-number">5001</span>)
+</div></code></pre>
+<h4 id="data-service-data-servicepy">Data Service (data-service.py)</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, jsonify
+<span class="hljs-keyword">from</span> prometheus_client <span class="hljs-keyword">import</span> Counter, Histogram, generate_latest
+<span class="hljs-keyword">from</span> opentelemetry <span class="hljs-keyword">import</span> trace
+<span class="hljs-keyword">import</span> logging
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> random
+
+app = Flask(__name__)
+tracer = trace.get_tracer(__name__)
+
+requests_total = Counter(<span class="hljs-string">&#x27;data_requests_total&#x27;</span>, <span class="hljs-string">&#x27;Total data requests&#x27;</span>)
+query_duration = Histogram(<span class="hljs-string">&#x27;data_query_duration_seconds&#x27;</span>, <span class="hljs-string">&#x27;Query duration&#x27;</span>)
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/data&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">get_data</span>():
+    <span class="hljs-keyword">with</span> tracer.start_as_current_span(<span class="hljs-string">&quot;data-service-query&quot;</span>):
+        <span class="hljs-comment"># Simular query a DB</span>
+        <span class="hljs-keyword">with</span> tracer.start_as_current_span(<span class="hljs-string">&quot;database-query&quot;</span>):
+            <span class="hljs-keyword">with</span> query_duration.time():
+                time.sleep(random.uniform(<span class="hljs-number">0.1</span>, <span class="hljs-number">0.5</span>))
+        
+        requests_total.inc()
+        logger.info(<span class="hljs-string">&quot;Data retrieved successfully&quot;</span>)
+        <span class="hljs-keyword">return</span> jsonify({
+            <span class="hljs-string">&#x27;data&#x27;</span>: [<span class="hljs-string">&#x27;item1&#x27;</span>, <span class="hljs-string">&#x27;item2&#x27;</span>, <span class="hljs-string">&#x27;item3&#x27;</span>],
+            <span class="hljs-string">&#x27;count&#x27;</span>: <span class="hljs-number">3</span>
+        })
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/metrics&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">metrics</span>():
+    <span class="hljs-keyword">return</span> generate_latest()
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
+    app.run(port=<span class="hljs-number">5002</span>)
+</div></code></pre>
+<hr>
+<h3 id="paso-2-configurar-prometheus">Paso 2: Configurar Prometheus</h3>
+<p>Actualiza <code>prometheus.yml</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-attr">scrape_configs:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">job_name:</span> <span class="hljs-string">&#x27;api-gateway&#x27;</span>
+    <span class="hljs-attr">static_configs:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">targets:</span> [<span class="hljs-string">&#x27;host.docker.internal:5000&#x27;</span>]
+
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">job_name:</span> <span class="hljs-string">&#x27;auth-service&#x27;</span>
+    <span class="hljs-attr">static_configs:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">targets:</span> [<span class="hljs-string">&#x27;host.docker.internal:5001&#x27;</span>]
+
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">job_name:</span> <span class="hljs-string">&#x27;data-service&#x27;</span>
+    <span class="hljs-attr">static_configs:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">targets:</span> [<span class="hljs-string">&#x27;host.docker.internal:5002&#x27;</span>]
+</div></code></pre>
+<hr>
+<h3 id="paso-3-crear-dashboards">Paso 3: Crear Dashboards</h3>
+<p><strong>Dashboard 1: Service Overview</strong></p>
+<p>Panels requeridos:</p>
+<ol>
+<li>Request Rate (Time Series)</li>
+<li>Error Rate % (Stat)</li>
+<li>Latency p95 (Gauge)</li>
+<li>Service Status (Stat - UP/DOWN)</li>
+<li>Top Errors (Bar Chart)</li>
+<li>Request Duration Heatmap</li>
+</ol>
+<p><strong>Dashboard 2: Business Metrics</strong></p>
+<p>Si añadiste métricas de negocio (ej: signups, revenue)</p>
+<hr>
+<h3 id="paso-4-configurar-alertas">Paso 4: Configurar Alertas</h3>
+<p>En <code>alert-rules.yml</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-attr">groups:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">microservices_alerts</span>
+    <span class="hljs-attr">rules:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">alert:</span> <span class="hljs-string">HighErrorRate</span>
+        <span class="hljs-attr">expr:</span> <span class="hljs-string">|
+          (rate(gateway_requests_total{status=&quot;500&quot;}[5m]) 
+           / rate(gateway_requests_total[5m])) * 100 &gt; 1
+</span>        <span class="hljs-attr">for:</span> <span class="hljs-string">5m</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">alert:</span> <span class="hljs-string">ServiceDown</span>
+        <span class="hljs-attr">expr:</span> <span class="hljs-string">up{job=~&quot;.*-service&quot;}</span> <span class="hljs-string">==</span> <span class="hljs-number">0</span>
+        <span class="hljs-attr">for:</span> <span class="hljs-string">1m</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">alert:</span> <span class="hljs-string">HighLatency</span>
+        <span class="hljs-attr">expr:</span> <span class="hljs-string">|
+          histogram_quantile(0.95, 
+            rate(gateway_request_duration_seconds_bucket[5m])
+          ) &gt; 0.5
+</span>        <span class="hljs-attr">for:</span> <span class="hljs-string">5m</span>
+</div></code></pre>
+<hr>
+<h3 id="paso-5-generador-de-tráfico">Paso 5: Generador de Tráfico</h3>
+<pre class="hljs"><code><div><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment"># traffic-gen.sh</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">do</span>
+  curl -s http://localhost:5000/api/data &gt; /dev/null
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Request sent&quot;</span>
+  <span class="hljs-built_in">sleep</span> 0.5
+<span class="hljs-keyword">done</span>
+</div></code></pre>
+<hr>
+<h2 id="-criterios-de-evaluación">✅ Criterios de Evaluación</h2>
+<h3 id="implementación-técnica-60">Implementación Técnica (60%)</h3>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">3 microservicios implementados y funcionando (15%)</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">Métricas expuestas en formato Prometheus (10%)</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">Logs estructurados (JSON) (10%)</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">Tracing end-to-end funcional (15%)</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">Prometheus scrapeando correctamente (10%)</label></li>
+</ul>
+<h3 id="dashboards-25">Dashboards (25%)</h3>
+<ul>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">Dashboard &quot;Service Overview&quot; completo (10%)</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">Al menos 6 paneles con diferentes visualizaciones (5%)</label></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">Variables para filtrado dinámico (5%)</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">Diseño profesional y consistente (5%)</label></li>
+</ul>
+<h3 id="alertas-10">Alertas (10%)</h3>
+<ul>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">Al menos 5 alertas configuradas (5%)</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">Notification channel configurado (5%)</label></li>
+</ul>
+<h3 id="seguridad-5">Seguridad (5%)</h3>
+<ul>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11">Security pipeline script ejecutado (3%)</label></li>
+<li><input type="checkbox" id="checkbox12"><label for="checkbox12">Al menos 1 vulnerabilidad identificada y documentada (2%)</label></li>
+</ul>
+<hr>
+<h2 id="-bonus-extra-credit">🏆 Bonus (Extra Credit)</h2>
+<ul>
+<li><input type="checkbox" id="checkbox13"><label for="checkbox13">Dashboard de Seguridad con métricas de CVEs</label></li>
+<li><input type="checkbox" id="checkbox14"><label for="checkbox14">Implementar rate limiting en API Gateway</label></li>
+<li><input type="checkbox" id="checkbox15"><label for="checkbox15">Añadir autenticación real (JWT)</label></li>
+<li><input type="checkbox" id="checkbox16"><label for="checkbox16">CI/CD pipeline completo (GitHub Actions o GitLab CI)</label></li>
+<li><input type="checkbox" id="checkbox17"><label for="checkbox17">Kubernetes deployment con Helm charts</label></li>
+<li><input type="checkbox" id="checkbox18"><label for="checkbox18">Service mesh (Istio) con tracing automático</label></li>
+</ul>
+<hr>
+<h2 id="-entregables">📦 Entregables</h2>
+<ol>
+<li>
+<p><strong>Código:</strong></p>
+<ul>
+<li>3 archivos Python de los microservicios</li>
+<li>docker-compose-full.yml</li>
+<li>prometheus.yml y alert-rules.yml</li>
+<li>security-pipeline.sh</li>
+</ul>
+</li>
+<li>
+<p><strong>Dashboards:</strong></p>
+<ul>
+<li>JSON export de dashboards</li>
+<li>Screenshots de cada dashboard</li>
+</ul>
+</li>
+<li>
+<p><strong>Documentación:</strong></p>
+<ul>
+<li>README.md explicando arquitectura</li>
+<li>Instrucciones para ejecutar el proyecto</li>
+<li>Respuestas a preguntas de reflexión</li>
+</ul>
+</li>
+<li>
+<p><strong>Seguridad:</strong></p>
+<ul>
+<li>Reporte de vulnerabilidades encontradas</li>
+<li>Plan de remediación</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="-preguntas-de-reflexión">🤔 Preguntas de Reflexión</h2>
+<ol>
+<li>¿Cómo detectarías un problema de performance en este sistema?</li>
+<li>¿Qué métrica es más importante: latencia o error rate? ¿Por qué?</li>
+<li>¿Cómo escalarías este sistema para manejar 10,000 req/s?</li>
+<li>¿Qué vulnerabilidades de seguridad identificaste?</li>
+<li>¿Cómo implementarías circuit breaker entre servicios?</li>
+</ol>
+<hr>
+<h2 id="-tiempo-sugerido">🎯 Tiempo Sugerido</h2>
+<ul>
+<li>Implementación de microservicios: 20 min</li>
+<li>Configuración de monitoring: 15 min</li>
+<li>Dashboards: 15 min</li>
+<li>Alertas y seguridad: 10 min</li>
+</ul>
+<hr>
+<h2 id="-tips">💡 Tips</h2>
+<ul>
+<li>Empieza simple, luego añade complejidad</li>
+<li>Prueba cada componente antes de integrar</li>
+<li>Usa logs para debugging</li>
+<li>Revisa dashboards de la comunidad para inspiración</li>
+</ul>
+<hr>
+<p><strong>¡Éxito en tu proyecto final! 🚀</strong></p>
+<p><strong>Este proyecto demuestra tus habilidades completas en DevSecOps y Observabilidad.</strong></p>
+
+</body>
+</html>
