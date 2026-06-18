@@ -3,6 +3,29 @@ import requests
 from prometheus_client import Counter, Histogram, generate_latest
 from opentelemetry import trace
 import logging
+import time
+
+
+class RateLimiter:
+    def __init__(self, limit, window_seconds):
+        self.limit = limit
+        self.window_seconds = window_seconds
+        self._windows = {}
+
+    def is_allowed(self, key, now=None):
+        now = time.time() if now is None else now
+        window_start, count = self._windows.get(key, (now, 0))
+
+        if now - window_start >= self.window_seconds:
+            self._windows[key] = (now, 1)
+            return True
+
+        if count < self.limit:
+            self._windows[key] = (window_start, count + 1)
+            return True
+
+        return False
+
 
 app = Flask(__name__)
 tracer = trace.get_tracer(__name__)
