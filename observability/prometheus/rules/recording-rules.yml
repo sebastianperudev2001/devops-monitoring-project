@@ -1,0 +1,41 @@
+groups:
+  - name: service_golden_signals
+    rules:
+      - record: service:request_rate:rate5m
+        expr: sum(rate(gateway_requests_total[5m]))
+        labels:
+          service: api-gateway
+      - record: service:request_rate:rate5m
+        expr: sum(rate(auth_requests_total[5m]))
+        labels:
+          service: auth-service
+      - record: service:request_rate:rate5m
+        expr: sum(rate(data_requests_total[5m]))
+        labels:
+          service: data-service
+
+      - record: service:error_ratio:rate5m
+        expr: sum(rate(gateway_requests_total{status=~"5.."}[5m])) / sum(rate(gateway_requests_total[5m]))
+        labels:
+          service: api-gateway
+      - record: service:error_ratio:rate5m
+        expr: sum(rate(auth_requests_total{status=~"5.."}[5m])) / sum(rate(auth_requests_total[5m]))
+        labels:
+          service: auth-service
+      - record: service:error_ratio:rate5m
+        expr: sum(rate(data_requests_total{status=~"5.."}[5m])) / sum(rate(data_requests_total[5m]))
+        labels:
+          service: data-service
+
+      - record: service:request_latency_p95:5m
+        expr: histogram_quantile(0.95, sum(rate(gateway_request_duration_seconds_bucket[5m])) by (le))
+        labels:
+          service: api-gateway
+      - record: service:request_latency_p95:5m
+        expr: histogram_quantile(0.95, sum(rate(auth_request_duration_seconds_bucket[5m])) by (le))
+        labels:
+          service: auth-service
+      - record: service:request_latency_p95:5m
+        expr: histogram_quantile(0.95, sum(rate(data_request_duration_seconds_bucket[5m])) by (le))
+        labels:
+          service: data-service
