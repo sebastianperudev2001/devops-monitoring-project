@@ -172,3 +172,21 @@ implementation:
    `{container=~"api-gateway|auth-service|data-service"}` and share a `request_id`.
 6. Confirm Grafana's Prometheus/Loki/Jaeger datasources show as connected via Grafana's
    provisioning (no manual datasource setup needed).
+
+## Known Limitations (Accepted for This Phase's Scope)
+
+These are deliberate trade-offs for a local, single-host teaching stack — not oversights, and not
+appropriate as-is for a real deployment:
+
+- **Jaeger runs as `user: root`.** `jaegertracing/all-in-one` defaults to non-root UID 10001, but
+  Docker creates named volumes owned by `root`, so Jaeger can't write into `jaeger_data` without
+  this override (discovered and fixed during Task 6's implementation). This is the only
+  root-privileged container in the stack — the 3 microservices' own Dockerfiles correctly run as a
+  non-root `appuser`. A tighter fix (an init container that `chown`s the volume once at startup)
+  exists but wasn't applied here to keep this phase's compose file minimal.
+- **Grafana's admin credentials (`admin`/`admin`) are hardcoded in `docker-compose.yml`** rather
+  than sourced from an `.env` file or Compose secret. Fine for a local demo; a real deployment
+  should never ship default credentials this way.
+- **All 9 ports bind to `0.0.0.0`** (Compose's default), so on a multi-user host or cloud VM this
+  stack is reachable from the network, not just localhost. Fine on a personal laptop; would need
+  `127.0.0.1:`-scoped bindings or a firewall in any shared environment.
